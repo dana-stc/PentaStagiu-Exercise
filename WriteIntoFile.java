@@ -1,18 +1,15 @@
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.FileSystemNotFoundException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * Main
+ * WriteIntoFile
  * Created on 07-Mar-19
  *
  * @author Stoica Ioana-Dana
  */
-
 public class WriteIntoFile {
 
     private String outputPath;
@@ -35,7 +32,6 @@ public class WriteIntoFile {
             } catch (IOException e) {
                 System.out.println("An error occurred while processing the data");
             }
-
         }
     }
 

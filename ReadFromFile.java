@@ -3,7 +3,7 @@ import java.nio.file.*;
 import java.util.stream.Stream;
 
 /**
- * Main
+ * ReadFromFile
  * Created on 07-Mar-19
  *
  * @author Stoica Ioana-Dana
@@ -33,7 +33,6 @@ public class ReadFromFile {
             System.out.println("An error occurred when processing the file. Please retry later");
             this.dataFromFile = new StringBuilder();
         }
-
     }
 
     public String getInputPath() {
