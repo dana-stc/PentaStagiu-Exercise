@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 /**
  * Main
@@ -8,12 +9,18 @@ public class Main {
 
     public static void main(String[] args)
     {
-        ReadFromFile file = new ReadFromFile("src/file.txt");
+        Scanner pathScanner = new Scanner(System.in);
+        System.out.println("Please enter the input file!");
+        String inputPath = pathScanner.next();
+        System.out.println("The path of the input file is: " + inputPath);
+
+        System.out.println("Please enter the output file!");
+        String outputPath = pathScanner.next();
+        System.out.println("The path of the output file is: " + outputPath);
+
+        ReadFromFile file = new ReadFromFile(inputPath);
         file.readFile();
-        System.out.println(file.getDataFromFile().toString());
-
-        WriteIntoFile file2 = new WriteIntoFile("src/file2.txt");
+        WriteIntoFile file2 = new WriteIntoFile(outputPath);
         file2.writeToFile(file.getDataFromFile().toString());
-
-    }
+        }
 }

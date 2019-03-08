@@ -1,7 +1,5 @@
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.util.stream.Stream;
 
 /**
@@ -10,7 +8,6 @@ import java.util.stream.Stream;
  *
  * @author Stoica Ioana-Dana
  */
-
 public class ReadFromFile {
 
     private String inputPath;
@@ -24,15 +21,19 @@ public class ReadFromFile {
     public void readFile() {
         Path path = Paths.get(this.inputPath);
         try (Stream<String> lines = Files.lines(path)) {
-            lines.forEach(line -> this.dataFromFile.append(line).append("\n")); // need to read more
+            lines.forEach(line -> this.dataFromFile.append(line).append("\n"));
             if (this.dataFromFile.length() == 0) {
-                System.out.println("File is empty");
+                System.out.println("The file is empty");
             } else {
                 this.dataFromFile.deleteCharAt(this.dataFromFile.length() - 1);//eliminate the last "\n"
             }
-        } catch (IOException ex) {
-            // do something or re-throw...
+        } catch (NoSuchFileException ex) {
+            System.out.println("The file doesn't exist. Please create one and rerun the program");
+        } catch (IOException e) {
+            System.out.println("An error occurred when processing the file. Please retry later");
+            this.dataFromFile = new StringBuilder();
         }
+
     }
 
     public String getInputPath() {
